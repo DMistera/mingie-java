@@ -1,1 +1,1 @@
-worker: sh target/bin/worker
+worker: java -jar build/libs/discord-bot-1.0-SNAPSHOT-all.jar
