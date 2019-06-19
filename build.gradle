@@ -27,24 +27,6 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.5'
 }
 
-jar {
-    manifest {
-        attributes 'Implementation-Title': 'MingieJar',
-                'Main-Class': 'DiscordBot.BotMain'
-    }
-    baseName = 'MingieJar'
-    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
-    from "./src/main/resources"
-}
 
-import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
-
-task devShadowJar(type: ShadowJar) {
-    zip64 true
-    from './build/classes/java/main'
-    from project.configurations.compile
-    from './src/main/resources'
-    configurations = [project.configurations.compile]
-}
 
 

@@ -6,6 +6,7 @@ import DiscordBot.Bot;
 import DiscordBot.CommandListener;
 import DiscordBot.MasterListener;
 import DiscordBot.MyUtils;
+import net.dv8tion.jda.core.entities.Game;
 import net.dv8tion.jda.core.entities.Message;
 import net.dv8tion.jda.core.entities.TextChannel;
 import net.dv8tion.jda.core.entities.User;
@@ -44,6 +45,8 @@ public class AlchemyGame implements CommandListener, MasterListener {
     }
 
     public void init() throws IOException, SQLException, FontFormatException {
+
+        bot.getJDA().getPresence().setGame(Game.playing("!help to start"));
 
         database = new AlchemyDatabase();
         database.connect();
