@@ -19,6 +19,7 @@ import javax.imageio.ImageIO;
 import javax.security.auth.login.LoginException;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.IOException;
 import java.util.*;
 import java.util.concurrent.TimeUnit;

@@ -23,12 +23,11 @@ public class ImageCreator {
     public static final int FONT_SIZE = 25;
 
     public void init() throws IOException, FontFormatException {
-        background = ImageIO.read(new File(this.getClass().getResource("/alchemyBackground.png").getPath()));
-        frame = ImageIO.read(new File(this.getClass().getResource("/alchemyFrame.png").getPath())).getScaledInstance(FRAME_SIZE, FRAME_SIZE, BufferedImage.SCALE_SMOOTH);
-        plus = ImageIO.read(new File(this.getClass().getResource("/alchemyPlus.png").getPath())).getScaledInstance(SIGN_SIZE, SIGN_SIZE, BufferedImage.SCALE_SMOOTH);
-        equal = ImageIO.read(new File(this.getClass().getResource("/alchemyEqual.png").getPath())).getScaledInstance(SIGN_SIZE, SIGN_SIZE, BufferedImage.SCALE_SMOOTH);
-        File fontFile = new File(this.getClass().getResource("/DOMINICA.TTF").getPath());
-        font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
+        background = ImageIO.read(this.getClass().getResourceAsStream("/alchemyBackground.png"));
+        frame = ImageIO.read(this.getClass().getResourceAsStream("/alchemyFrame.png")).getScaledInstance(FRAME_SIZE, FRAME_SIZE, BufferedImage.SCALE_SMOOTH);
+        plus = ImageIO.read(this.getClass().getResourceAsStream("/alchemyPlus.png")).getScaledInstance(SIGN_SIZE, SIGN_SIZE, BufferedImage.SCALE_SMOOTH);
+        equal = ImageIO.read(this.getClass().getResourceAsStream("/alchemyEqual.png")).getScaledInstance(SIGN_SIZE, SIGN_SIZE, BufferedImage.SCALE_SMOOTH);
+        font = Font.createFont(Font.TRUETYPE_FONT, this.getClass().getResourceAsStream("/DOMINICA.TTF"));
     }
 
     public BufferedImage createRecipeImage(Recipe recipe, List<Element> unlcokedElements) {

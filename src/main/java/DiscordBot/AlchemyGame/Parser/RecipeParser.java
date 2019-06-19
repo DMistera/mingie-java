@@ -1,18 +1,16 @@
 package DiscordBot.AlchemyGame.Parser;
 
-
-import DiscordBot.AlchemyGame.Parser.RecipeBookRaw;
+import DiscordBot.MyUtils;
 import com.google.gson.Gson;
-
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+import java.io.InputStream;
 
 public class RecipeParser {
 
-    public RecipeBookRaw parse() throws FileNotFoundException {
-        FileReader reader = new FileReader(this.getClass().getResource("/recipes.json").getPath());
+    public RecipeBookRaw parse() {
+        InputStream stream = this.getClass().getResourceAsStream("/recipes.json");
+        String s = MyUtils.inputStreamToString(stream);
         Gson gson = new Gson();
-        RecipeBookRaw book = gson.fromJson(reader, RecipeBookRaw.class);
+        RecipeBookRaw book = gson.fromJson(s, RecipeBookRaw.class);
         return book;
     }
 }

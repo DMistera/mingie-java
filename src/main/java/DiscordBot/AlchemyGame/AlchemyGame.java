@@ -5,6 +5,7 @@ import DiscordBot.AlchemyGame.Parser.RecipeParser;
 import DiscordBot.Bot;
 import DiscordBot.CommandListener;
 import DiscordBot.MasterListener;
+import DiscordBot.MyUtils;
 import net.dv8tion.jda.core.entities.Message;
 import net.dv8tion.jda.core.entities.TextChannel;
 import net.dv8tion.jda.core.entities.User;
@@ -61,13 +62,7 @@ public class AlchemyGame implements CommandListener, MasterListener {
         imageCreator = new ImageCreator();
         imageCreator.init();
 
-        helpMessage = "";
-        File helpFile = new File( this.getClass().getResource("/alchemyHelp.txt").getPath());
-        BufferedReader bufferedReader = new BufferedReader(new FileReader(helpFile));
-        String line;
-        while((line = bufferedReader.readLine()) != null) {
-            helpMessage += line + "\n";
-        }
+        helpMessage = MyUtils.inputStreamToString( this.getClass().getResourceAsStream("/alchemyHelp.txt"));
 
         System.out.println("Alchemy game is ready to go!");
     }

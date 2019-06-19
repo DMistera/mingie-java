@@ -10,7 +10,7 @@ import net.dv8tion.jda.core.hooks.EventListener;
 
 import java.util.List;
 
-public class Main implements EventListener {
+public class BotMain implements EventListener {
 
     static  JDA jda;
 
