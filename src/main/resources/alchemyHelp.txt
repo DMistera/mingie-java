@@ -1,0 +1,10 @@
+Welcome to the world of alchemy!
+I will personally assist you in your journey to become master alchemist!
+Combine elements to create new elements!
+You can only combine elements you own.
+
+**Available commands:**
+**!me** - View your unlocked elements.
+**!combine/!c [element] + [element]** - Combine elements
+**!tip** - If you're stuck, I will give you a small tip!
+**!suggest [element] [imageURL]** - If an element is missing image or you have a better image for a given element you can suggest your image to the game creator. Your suggestion will be considered shorty after.

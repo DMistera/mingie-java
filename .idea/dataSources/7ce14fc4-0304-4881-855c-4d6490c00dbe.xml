@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="Discord-Database">
+  <database-model serializer="dbm" dbms="H2" family-id="H2" format-version="4.14">
+    <root id="1">
+      <ServerVersion>1.4.196</ServerVersion>
+    </root>
+    <database id="2" parent="1" name="DISCORD-DATABASE">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </database>
+    <schema id="3" parent="2" name="INFORMATION_SCHEMA"/>
+    <schema id="4" parent="2" name="PUBLIC">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <table id="5" parent="4" name="ELEMENTS"/>
+    <table id="6" parent="4" name="IMAGE_SUGGESTIONS"/>
+    <table id="7" parent="4" name="PLAYERS"/>
+    <table id="8" parent="4" name="PLAYER_ELEMENTS"/>
+    <column id="9" parent="5" name="ELEMENTID">
+      <Position>1</Position>
+      <DataType>DECIMAL|3s</DataType>
+    </column>
+    <column id="10" parent="5" name="IMAGEURL">
+      <Position>2</Position>
+      <DataType>VARCHAR(512)|12s</DataType>
+    </column>
+    <column id="11" parent="6" name="AUTHORID">
+      <Position>1</Position>
+      <DataType>VARCHAR(18)|12s</DataType>
+    </column>
+    <column id="12" parent="6" name="ELEMENTID">
+      <Position>2</Position>
+      <DataType>DECIMAL|3s</DataType>
+    </column>
+    <column id="13" parent="6" name="IMAGEURL">
+      <Position>3</Position>
+      <DataType>VARCHAR(512)|12s</DataType>
+    </column>
+    <column id="14" parent="7" name="USERID">
+      <Position>1</Position>
+      <DataType>VARCHAR(18)|12s</DataType>
+    </column>
+    <column id="15" parent="7" name="LASTTIPTIME">
+      <Position>2</Position>
+      <DataType>DECIMAL|3s</DataType>
+    </column>
+    <column id="16" parent="8" name="USERID">
+      <Position>1</Position>
+      <DataType>VARCHAR(18)|12s</DataType>
+    </column>
+    <column id="17" parent="8" name="ELEMENTID">
+      <Position>2</Position>
+      <DataType>DECIMAL|3s</DataType>
+    </column>
+  </database-model>
+</dataSource>
