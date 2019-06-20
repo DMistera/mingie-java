@@ -128,22 +128,29 @@ public class Bot implements EventListener {
 
     public void sendImage(TextChannel channel, BufferedImage image, Consumer<Message> callback) {
         try {
-            channel.sendMessage(getImageAsEmbed(image)).queue(callback);
+            ByteArrayOutputStream boas = new ByteArrayOutputStream();
+            ImageIO.write(image, "jpg", boas);
+            boas.flush();
+            Map uploadResult = cloudinary.uploader().upload(boas.toByteArray(), ObjectUtils.emptyMap());
+            boas.close();
+            String url = (String)uploadResult.get("url");
+            EmbedBuilder eb = new EmbedBuilder();
+            eb.setImage(url);
+            MessageEmbed embed = eb.build();
+            channel.sendMessage(embed).queue(message -> {
+                try {
+                    cloudinary.uploader().destroy((String)uploadResult.get("public_id"), null);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                if(callback != null) {
+                    callback.accept(message);
+                }
+            });
+
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    public MessageEmbed getImageAsEmbed(BufferedImage image) throws IOException {
-        ByteArrayOutputStream boas = new ByteArrayOutputStream();
-        ImageIO.write(image, "jpg", boas);
-        boas.flush();
-        Map uploadResult = cloudinary.uploader().upload(boas.toByteArray(), ObjectUtils.emptyMap());
-        boas.close();
-        String url = (String)uploadResult.get("url");
-        EmbedBuilder eb = new EmbedBuilder();
-        eb.setImage(url);
-        return eb.build();
     }
 
     public void sendImageAndDelete(TextChannel channel, BufferedImage image, long timeout) {

@@ -170,7 +170,7 @@ public class ImageCreator {
         Graphics2D graphics2D = r.graphics2D;
         BufferedImage result = r.bufferedImage;
 
-        setFontSize(graphics2D, FONT_SIZE);
+        setFontSize(graphics2D, header, FRAME_SIZE*3 + intervalWidth*2, FONT_SIZE);
         drawStringCentered(graphics2D, header,new Point(imageWidth/2, BORDER_WIDTH + headerHeight/2));
 
         Point position = new Point(BORDER_WIDTH + FRAME_SIZE/2, BORDER_WIDTH + FRAME_SIZE/2 + headerHeight);
