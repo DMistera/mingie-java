@@ -13,7 +13,7 @@ public class AlchemyDatabase {
 
     //private final String url = "jdbc:h2:C:/DB/Discord-Database";
 
-    private final String serverUrl = "jdbc:mysql://remotemysql.com:3306/K297MoGjlA";
+    private final String serverUrl = "jdbc:mysql://remotemysql.com:3306/K297MoGjlA?autoReconnect=true";
     private final String username = "K297MoGjlA";
 
     private Connection connection;
@@ -23,6 +23,7 @@ public class AlchemyDatabase {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             connection = DriverManager.getConnection(serverUrl, username, System.getenv("databasePassword"));
+
             if (connection!= null){
                 System.out.println("Connection created successfully");
             }else{

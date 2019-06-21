@@ -138,11 +138,11 @@ public class Bot implements EventListener {
             eb.setImage(url);
             MessageEmbed embed = eb.build();
             channel.sendMessage(embed).queue(message -> {
-                try {
+                /*try {
                     cloudinary.uploader().destroy((String)uploadResult.get("public_id"), null);
                 } catch (IOException e) {
                     e.printStackTrace();
-                }
+                }*/
                 if(callback != null) {
                     callback.accept(message);
                 }
